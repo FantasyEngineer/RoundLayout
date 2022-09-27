@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+
+        <com.hjg.mylibrary.RoundCropViewLayout
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            app:rv_backgroundColor="#242"
+            app:rv_cornerRadius="20dp"
+            app:rv_strokeColor="#E83B30"
+            app:rv_strokeWidth="3dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/girl"></ImageView>
+
+        </com.hjg.mylibrary.RoundCropViewLayout>
+
+        <com.hjg.mylibrary.RoundCropViewLayout
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:rv_cornerRadius_BL="20dp"
+            app:rv_cornerRadius_BR="20dp"
+            app:rv_cornerRadius_TL="20dp"
+            app:rv_cornerRadius_TR="20dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/girl"></ImageView>
+
+        </com.hjg.mylibrary.RoundCropViewLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下面的内部view如果全充满，是不能看到圆角的效果的">
+
+        </TextView>
+
+        <com.hjg.mylibrary.RoundFrameLayout
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:rv_backgroundColor="@color/black"
+            app:rv_cornerRadius="20dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/girl">
+
+            </ImageView>
+
+
+        </com.hjg.mylibrary.RoundFrameLayout>
+
+        <com.hjg.mylibrary.RoundConstraintLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:rv_backgroundColor="@color/black"
+            app:rv_cornerRadius="10dp"
+            app:rv_strokeColor="#999"
+            app:rv_strokeWidth="1dp">
+
+        </com.hjg.mylibrary.RoundConstraintLayout>
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
