@@ -5,6 +5,11 @@ plugins {
 }
 group='com.github.FantasyEngineer'
 
+task generateSourcesJar(type: Jar){
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
 android {
     compileSdk 32
 
@@ -12,8 +17,8 @@ android {
         applicationId "com.hjg.roundlayout"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -31,6 +36,23 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    publishing {
+        singleVariant("release")
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release         // 表示发布 release（jitpack 都不会使用到）
+                groupId = 'com.hjg.roundlayout' // 这个是依赖库的组 id
+                artifactId = 'RoundLayout'       // 依赖库的名称（jitpack 都不会使用到）
+                version ="2.0"                //当前版本依赖库版本号，这个jitpack不会使用到，只是我们开发者自己查看
+            }
+        }
+    }
 }
 
 dependencies {
@@ -41,7 +63,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     implementation project(path: ':mylibrary')
-//    implementation 'com.github.FantasyEngineer:RoundLayout:1.1'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
