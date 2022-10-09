@@ -65,8 +65,8 @@ dependencies {
 
 
 
-    implementation project(path: ':mylibrary')
-//    implementation 'com.github.FantasyEngineer:RoundLayout:2.0'
+//    implementation project(path: ':mylibrary')
+    implementation 'com.github.FantasyEngineer:RoundLayout:3.0'
 
 
 }
